@@ -16,21 +16,6 @@ def part1(nodes, rl, starting_node):
   
   return i
 
-def calc_part2(nodes, rl, starting_node):
-  my_node = starting_node
-  i = 0
-  while my_node[-1] != 'Z':
-    next_move = rl[i%len(rl)]
-    (l,r) = nodes[my_node]
-
-    if next_move == 'L':
-      my_node = l
-    else:
-      my_node = r
-    i+=1
-  
-  return i
-
 with open(os.path.dirname(__file__) + '/input.txt') as f:
   lines = f.read().splitlines()
   rl = lines.pop(0)
