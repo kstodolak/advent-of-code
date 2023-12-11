@@ -29,13 +29,6 @@ def where_can_go(pipes, pos, prev):
       return calc_d
   return None
 
-def get_neighbours(pos, visited):
-  neighbours = []
-  for (y,x) in [N,S,W,E]:
-    new_pos = (pos[0] + y, pos[1] + x)
-    if new_pos not in visited:
-      neighbours.append()
-
 def extend_map(M):
   new_M = []
   for y in range(len(M)):
