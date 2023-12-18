@@ -19,7 +19,7 @@ with open(os.path.dirname(__file__) + '/input.txt') as f:
   for i,time in enumerate(times):
     max_distance=0
     for t in range(time):
-      dist = calculate_distance(t,time)
+      dist = t * (time-t)
       if dist >= max_distance: 
         max_distance = dist
       if dist > distances[i]: 

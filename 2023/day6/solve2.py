@@ -15,7 +15,7 @@ def find_break(time, record):
 
   while lo+1 < hi:
     m = (lo+hi) // 2
-    d = calculate_distance(m, time)
+    d = m * (time - m)
     if d >= record:
       hi = m
     else: 
