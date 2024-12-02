@@ -12,6 +12,15 @@ def is_save(diffs):
 
   return safe
 
+def count_diffs(level):
+  diffs = []
+  for i in range(1, len(level)):
+    prev = level[i-1]
+    curr = level[i]
+    diff = curr - prev
+    diffs.append(diff)
+  return diffs
+
 with open(os.path.dirname(__file__) + '/input') as f:
   lines = f.read().splitlines()
 
@@ -23,12 +32,7 @@ with open(os.path.dirname(__file__) + '/input') as f:
   part1 = 0
   part2 = 0
   for level in levels:
-    diffs = []
-    for i in range(1, len(level)):
-      prev = level[i-1]
-      curr = level[i]
-      diff = curr - prev
-      diffs.append(diff)
+    diffs = count_diffs(level)
 
     safe = is_save(diffs)
     if safe:
@@ -36,13 +40,8 @@ with open(os.path.dirname(__file__) + '/input') as f:
       part2 += 1
     else:
       for i in range(len(level)):
-        diffs = []
         _level = level[:i] + level[i+1:]
-        for ii in range(1, len(_level)):
-          prev = _level[ii-1]
-          curr = _level[ii]
-          diff = curr - prev
-          diffs.append(diff)
+        diffs = count_diffs(_level)
         safe = is_save(diffs)
         if safe:
           part2 += 1
